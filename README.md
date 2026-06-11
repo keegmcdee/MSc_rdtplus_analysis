@@ -9,6 +9,7 @@ Requirements:
 - Find path to RDT+ directory ( /mfs/rdtplus/00_reads/)
 
 Sample Script for running minimap in parallel:
+Create a empty directory to use this script in!
 
 ```
 #!/bin/bash
@@ -19,10 +20,7 @@ parallel --eta -S 4/SP31,4/SP32,6/SP63,6/SP64,12/SP2000,24/SP5000 --load 80% --p
         /mfs/kmac/bin/minimap2 -t 4 -ax map-ont \
         /mfs/path/to/ICP3_genome {} | \
         /mfs/kmac/bin/samtools view -b | \
-        /mfs/kmac/bin/samtools sort --write-index -o output_directory/{/..}.bam
-' ::: /mfs/kmac/rdtplus/fastqziped/*.fastq.gz
+        /mfs/kmac/bin/samtools sort --write-index -o {/..}.bam
+' ::: /mfs/rdtplus/00_reads/*.fastq.gz
 
-```
-```
-bash map.sh > ./map_log.txt 2>&1 && echo "mapping completed" > ./mmap_done.log
 ```
