@@ -13,7 +13,7 @@ Create a empty directory to use this script in!
 
 ```
 #!/bin/bash
-#Minmap2 script to map rdt+ reads to reference genome ICP3
+#Minimap2 script to map rdt+ reads to reference genome ICP3
 #KJM May 25 2026
 
 parallel --eta -S 4/SP31,4/SP32,6/SP63,6/SP64,12/SP2000,24/SP5000 --load 80% --plus '
